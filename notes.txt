@@ -1,44 +1,27 @@
 Features list
-- who was the creator? authorship
-- how many times was it copied?
-- copy to clipboard
-- see other profiles
-- Full text search sqlite django
-- user can add folders and move snippets between folder projects
+- increment copy when button pressed or copy/paste used
 - populate page with tags
 - glossary of tags.
 - admin users can add / change tags
+
+- Full text search sqlite django
 - sort by popularity, alphabetical
 - advanced search options? (later adv search box)
     - title, language, tags
     - date published
     - add to the parameter
 
+- Write Documentation / Readme for use
 
+- user can add folders and move snippets between folder projects
 
-- foreign key back to original snippet
-    - number of times a snippet has been copied
-    - username for creator of snippet
-
-
-
-Users expect to see some common features in web applications. 
-Users should have avatar images. 
-
-come up with your own features to make your project unique. 
 
 Your application must include a README.md file with instructions on how to run it. 
 Your application should be able to run from scratch 
 
-Stretch goal for each project: trying new things
-
-Logged in users can add code snippets.
 Logged in users can search their own code snippets and get results.
 Each user has a profile page that shows their public code snippets. Other users can copy 
 a snippet with one click, adding it to their library of snippets.
-
-A snippet has code (required), a language (required), a title (optional), and 
-whatever other fields make sense. Some ideas to consider: a description or a list of tags.
 
 If you copy a snippet by clicking the copy button (or whatever UI element is used for 
 this purpose), there's a link back to the original snippet. The easiest way to do this 
@@ -57,3 +40,37 @@ This can vary, but the two parts that definitely need JavaScript are syntax high
 and copying a code snippet to your clipboard.
 
 For syntax highlighting, check out Prism.js or Highlight.js.
+
+Features to Consider Adding
+Search Functionality: Implement a robust search feature that allows users to find snippets based on multiple parameters—title, language, tag, etc.
+
+User Following: Allow users to follow each other and get updates when their followed users add new snippets.
+
+Snippet Ratings or Likes: Allow users to like or rate snippets. This could be a simple thumbs-up, thumbs-down, or a 5-star system.
+
+Snippet Versioning: Allow snippets to have different versions, so users can update a snippet and keep a history of changes.
+
+Comments and Discussion: Implement a comments section below each snippet where users can discuss or ask questions about the code.
+
+Snippet Forking: Allow users to fork other's snippets and make changes to their own copy.
+
+Analytics Dashboard: A dashboard showing various statistics about user activity, the popularity of various languages, and other metrics.
+
+Multi-User Collaboration: Allow multiple users to collaborate on the same snippet.
+
+Email Notifications: Notify users about various activities like new followers, comments on their snippets, or weekly digests of popular snippets.
+
+Syntax Highlighting: Implement code syntax highlighting for the supported languages.
+
+Other Enhancements
+Testing: Add unit tests, integration tests, and maybe even some UI tests.
+
+API: Implement a RESTful API so that other developers could interact with your platform.
+
+Performance Optimizations: Implement caching, database optimizations, and other performance improvements.
+
+Documentation: Write comprehensive documentation, including setup instructions, feature overviews, and code comments.
+
+Accessibility: Make sure your website is accessible to all users, including those using screen readers or other assistive technologies.
+
+Responsive Design: Make sure your site looks good on all device sizes, from phones to large desktop screens.
