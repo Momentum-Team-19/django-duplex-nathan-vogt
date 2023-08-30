@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Edit Snippet</h1>
+    <form method="post" action="{% url 'snippets:edit_snippet' snippet.id %}">
+        {% csrf_token %}
+        <label for="is_public">Make this public</label>
+        <input type="checkbox" name="is_public" id="is_public" {% if snippet.is_public %}checked{% endif %}>
+        
+        <label for="snippet_name">Title:</label>
+        <input type="text" id="snippet_name" name="snippet_name" value="{{ snippet.title }}" required><br>
+
+        <label for="snippet_language">Language:</label>
+        <input type="text" id="snippet_language" name="snippet_language" value="{{ snippet.language }}" required><br>
+
+        <label for="snippet_code">Code:</label>
+        <textarea id="snippet_code" name="snippet_code" required>{{ snippet.code }}</textarea><br>
+
+        <label for="snippet_description">Description:</label>
+        <input type="text" id="snippet_description" name="snippet_description" value="{{ snippet.description }}" required><br>
+
+        <div style="display: flex; flex-wrap: wrap;">
+            {% for tag in all_tags %}
+                <div style="flex: 1; min-width: 200px;">
+                    <input type="checkbox" name="tags" value="{{ tag.id }}"> {{ tag.name }}
+                </div>
+            {% endfor %}
+        </div>
+
+        <button type="submit">Update Snippet</button>
+    </form>
+{% endblock %}

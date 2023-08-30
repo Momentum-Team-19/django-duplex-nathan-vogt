@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Snippet Hub</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{% static 'snippets/style.css' %}">
+  
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand text-white" href="{% url 'snippets:home' %}">Snippet Hub</a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <!-- Link to homepage -->
+          <a class="nav-link text-white" href="{% url 'snippets:home' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="{% url 'snippets:profile' %}">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="{% url 'snippets:new_snippet' %}">Create Snippet</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="{% url 'snippets:view_snippets' %}">View Public Snippets</a>
+        </li>
+        
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main content -->
+  <div class="container">
+    {% block content %}
+    <!-- Content will go here -->
+    {% endblock %}
+  </div>
+
+  <!-- Footer -->
+  <div class="footer text-center py-3">
+    <p>&copy; 2023 Snippet Hub. All rights reserved.</p>
+  </div>
+
+</body>
+</html>

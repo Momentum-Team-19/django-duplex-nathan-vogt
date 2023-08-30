@@ -1,0 +1,21 @@
+/* Custom colors */
+body {
+    background-color: #000814;
+    color: #FFC300;
+}
+.navbar, .footer {
+    background-color: #001D3D;
+}
+.btn-primary {
+    background-color: #FFC300;
+}
+.btn-primary:hover {
+    background-color: #FFD60A;
+}
+a {
+    color: #FFC300;
+}
+a:hover {
+    color: #FFD60A;
+}
+

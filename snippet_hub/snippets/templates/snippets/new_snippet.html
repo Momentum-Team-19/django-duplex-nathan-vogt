@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+New Snippet - Snippet Hub
+{% endblock %}
+
+{% block content %}
+    <!-- Your New Snippet page content here -->
+    <h1>New Snippet Page</h1>
+    
+    <p>Create a Code Snippet</p>
+
+
+    <form action="{% url 'snippets:new_snippet' %}" method="post">
+        {% csrf_token %}
+        <input type="checkbox" name="is_public" {% if snippet.is_public %}checked{% endif %}>  
+        <label for="is_public">Make this Public for others users</label>
+        
+        
+        <input type="text" name="snippet_name" placeholder="Enter Name" class="form-control">
+        <input type="text" name="snippet_language" placeholder="Enter Language" class="form-control">
+        <input type="text" name="snippet_code" placeholder="Enter Code" class="form-control">
+        <input type="text" name="snippet_description" placeholder="Enter Description" class="form-control">
+        
+        <br>
+        <div style="display: flex; flex-wrap: wrap;">
+            {% for tag in all_tags %}
+                <div style="flex: 1; min-width: 200px;">
+                    <input type="checkbox" name="tags" value="{{ tag.id }}"> {{ tag.name }}
+                </div>
+            {% endfor %}
+        </div>
+        
+        <br>
+        <button type="submit" class="btn btn-primary">Create Snippet</button>
+
+    </form>
+    <br>
+
+{% endblock %}

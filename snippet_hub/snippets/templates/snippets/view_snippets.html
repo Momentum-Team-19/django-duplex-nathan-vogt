@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+View Snippets - Snippet Hub
+{% endblock %}
+
+{% block content %}
+<!-- Your View Snippets page content here -->
+
+<h1>View Snippets Page</h1>
+
+<!-- Search Field -->
+<form method="get" action="{% url 'snippets:view_snippets' %}">
+    <input type="text" name="search" placeholder="Search snippets">
+    <button type="submit">Search</button>
+</form>
+
+<!-- Display Results Below -->
+<div class="container">
+    {% if snippets %}
+        <h2>Search Results:</h2>
+        <ul>
+            {% for snippet in snippets %}
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">{{ snippet.title }}</h4>
+                    <h5 class="card-subtitle mb-2 text-muted">{{ snippet.language }}</h5>
+                    <p>Tags: {% for tag in snippet.tags.all %}{{ tag.name }} {% endfor %}</p>
+                    <h6 class="card-text">{{ snippet.code }}</h6>
+                    <p class="card-text">{{ snippet.description }}</p>
+                    <a href="{% url 'snippets:view_snippet' snippet.id %}" class="card-subtitle mb-2 text-muted">View Snippet</a>
+                    <a href="{% url 'snippets:copy_snippet' snippet.id %}">Copy to My Snippets</a>
+                </div>
+            </div>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h2>No results found</h2>
+    {% endif %}
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+View Snippet - Snippet Hub
+{% endblock %}
+
+{% block content %}
+
+<!-- Your View Snippet page content here -->
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">{{ snippet.title }}</h4>
+        <h5 class="card-subtitle mb-2 text-muted">{{ snippet.language }}</h5>
+        <p>Tags: {% for tag in snippet.tags.all %}{{ tag.name }} {% endfor %}</p>
+        <h6 class="card-text">{{ snippet.code }}</h6>
+        <p class="card-text">{{ snippet.description }}</p>
+
+        <!-- Edit Button -->
+        <a href="{% url 'snippets:edit_snippet' snippet.id %}">
+            <button class="btn btn-primary">Edit Snippet</button>
+        </a>
+
+        <!-- Delete Button -->
+        <form method="post" action="{% url 'snippets:delete_snippet' snippet.id %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+
+        <a href="{% url 'snippets:profile' %}" class="card-subtitle mb-2 text-muted">Back to Snippets List</a>
+</div>
+
+{% endblock %}

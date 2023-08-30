@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Profile Page - Snippet Hub
+{% endblock %}
+
+{% block content %}
+    <!-- Your Profile Page content here -->
+    <h1>Profile Page</h1>
+    <img src="https://robohash.org/{{ user.username }}" alt="Profile Picture" style="width:200px; height:200px;">
+    <p> {{ user.username }}</p>
+    <p>{{ user.profile.about }}</p>
+    <p>Joined on: {{ user.profile.date_created }}</p>
+
+    <h2>Snippets</h2>
+    {% for snippet in user.snippets.all %}
+        <a href="{% url 'snippets:view_snippet' snippet.id %}">{{ snippet.title }}</a>
+    {% endfor %}
+
+{% endblock %}

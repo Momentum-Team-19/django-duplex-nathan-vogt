@@ -1,0 +1,43 @@
+Features list
+- tags for snippets
+- foreign key back to original snippet
+    - number of times a snippet has been copied
+    - username for creator of snippet
+
+
+
+Users expect to see some common features in web applications. 
+Users should have avatar images. 
+
+come up with your own features to make your project unique. 
+
+Your application must include a README.md file with instructions on how to run it. 
+Your application should be able to run from scratch 
+
+Stretch goal for each project: trying new things
+
+Logged in users can add code snippets.
+Logged in users can search their own code snippets and get results.
+Each user has a profile page that shows their public code snippets. Other users can copy 
+a snippet with one click, adding it to their library of snippets.
+
+A snippet has code (required), a language (required), a title (optional), and 
+whatever other fields make sense. Some ideas to consider: a description or a list of tags.
+
+If you copy a snippet by clicking the copy button (or whatever UI element is used for 
+this purpose), there's a link back to the original snippet. The easiest way to do this 
+is with a foreign key. One should be able to see how many times a snippet has been copied.
+
+The original snippet creator can edit their snippet; the copying user can edit their copy.
+
+How search works
+Search should look for terms in the title, in other fields like a description or tags, 
+and in the language field. If I search for "javascript auth," I should see any snippets 
+I have about authentication using JavaScript. See search in the Django documentation for 
+some ideas.
+
+How much of this is JavaScript?
+This can vary, but the two parts that definitely need JavaScript are syntax highlighting 
+and copying a code snippet to your clipboard.
+
+For syntax highlighting, check out Prism.js or Highlight.js.
