@@ -48,6 +48,11 @@ def view_snippets(request):
             Q(description__icontains=query) &
             Q(is_public=True)
         )
+        # if advanced search
+            # add in parameters
+            # if each parameter is checked ...
+        # search with 1 word if multiple given
+
     else:
         snippets = Snippet.objects.filter(is_public=True)
     
@@ -61,6 +66,9 @@ def view_snippet(request, snippet_id):
 @login_required  # makes sure the user is logged in before they can edit a snippet
 def edit_snippet(request, snippet_id):
     snippet = Snippet.objects.get(id=snippet_id)
+    all_tags = Tag.objects.all()
+    selected_tags = snippet.tags.all() # Get all the tags that are currently selected for this snippet
+    
     if request.method == 'POST':
         snippet.title = request.POST.get('snippet_name')
         snippet.language = request.POST.get('snippet_language')
@@ -68,14 +76,14 @@ def edit_snippet(request, snippet_id):
         snippet.description = request.POST.get('snippet_description')
         is_public = request.POST.get('is_public') == 'on'  # Checkbox returns 'on' if checked
         snippet.is_public = is_public
-        snippet.save()
 
-        selected_tags = request.POST.getlist('tags')
-        snippet.tags.set(selected_tags)
+        selected_tags = request.POST.getlist('tags')  # Get the list of tags that were selected in the form
+        snippet.save()
+        snippet.tags.set(selected_tags)  # update tags for this snippet
 
         return redirect('snippets:view_snippet', snippet_id=snippet.id) # Redirect to the view page of the updated snippet
     
-    return render(request, 'snippets/edit_snippet.html', {'snippet': snippet})
+    return render(request, 'snippets/edit_snippet.html', {'snippet': snippet, 'all_tags': all_tags, 'selected_tags': selected_tags})
 
 @login_required  # makes sure the user is logged in before they can delete a snippet
 def delete_snippet(request, snippet_id):

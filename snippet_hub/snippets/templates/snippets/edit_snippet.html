@@ -22,7 +22,7 @@
         <div style="display: flex; flex-wrap: wrap;">
             {% for tag in all_tags %}
                 <div style="flex: 1; min-width: 200px;">
-                    <input type="checkbox" name="tags" value="{{ tag.id }}"> {{ tag.name }}
+                    <input type="checkbox" name="tags" value="{{ tag.id }}" {% if tag in selected_tags %}checked{% endif %}> {{ tag.name }}
                 </div>
             {% endfor %}
         </div>
