@@ -4,9 +4,9 @@ Features list
 - glossary of tags.
 - admin users can add / change tags
 
+- advanced search options? (later adv search box)
 - Full text search sqlite django
 - sort by popularity, alphabetical
-- advanced search options? (later adv search box)
     - title, language, tags
     - date published
     - add to the parameter
@@ -15,7 +15,22 @@ Features list
 
 - user can add folders and move snippets between folder projects
 
+Styling
+Public Views
+ - 2 by 2 box for title, lang, author, tags
+ - description in med box
+ - copy to My Snippets bottom left. View Snippets middle, times copied bottom right
+Detail View
+ - Code large box 
+ - Description large box
+profile / view_user / home
+ - update styling
+ - why use Github ever again?
+ - guest or login
+ - superuser
 
+
+------------------------------------------------------------------------------------------
 Your application must include a README.md file with instructions on how to run it. 
 Your application should be able to run from scratch 
 
