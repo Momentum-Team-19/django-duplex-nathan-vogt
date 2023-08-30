@@ -1,5 +1,21 @@
 Features list
-- tags for snippets
+- who was the creator? authorship
+- how many times was it copied?
+- copy to clipboard
+- see other profiles
+- Full text search sqlite django
+- user can add folders and move snippets between folder projects
+- populate page with tags
+- glossary of tags.
+- admin users can add / change tags
+- sort by popularity, alphabetical
+- advanced search options? (later adv search box)
+    - title, language, tags
+    - date published
+    - add to the parameter
+
+
+
 - foreign key back to original snippet
     - number of times a snippet has been copied
     - username for creator of snippet
