@@ -12,6 +12,8 @@ urlpatterns = [
     path('edit_snippet/<int:snippet_id>/', views.edit_snippet, name='edit_snippet'),  # Edit a single code snippet
     path('delete_snippet/<int:snippet_id>/', views.delete_snippet, name='delete_snippet'),  # Delete a single code snippet
     path('copy_snippet/<int:snippet_id>/', views.copy_snippet, name='copy_snippet'),
+    path('user/<str:username>/', views.view_user_profile, name='view_user_profile'),
+    path('increment_copy_count/<int:snippet_id>/', views.increment_copy_count, name='increment_copy_count'),
 ]
 
 print(urlpatterns)

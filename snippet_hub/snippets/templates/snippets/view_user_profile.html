@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1>{{ user.username }}'s Profile</h1>
+        
+        <!-- Display Robohash Profile Picture -->
+        <img src="https://robohash.org/{{ user.username }}" alt="Profile Picture" style="width:200px; height:200px;">
+        
+        <!-- Display user's email and other profile information -->
+        <p>Email: {{ user.email }}</p>
+        
+        <!-- Display user's join date -->
+        <p>Joined: {{ user.date_joined|date:"F j, Y" }}</p>
+
+        <h2>Snippets Created by {{ user.username }}</h2>
+
+        <!-- List all the snippets created by this user -->
+        <ul>
+            {% for snippet in snippets %}
+                <li>
+                    <a href="{% url 'snippets:view_snippet' snippet.id %}">{{ snippet.title }}</a>
+                    <p>Language: {{ snippet.language }}</p>
+                </li>
+            {% empty %}
+                <p>This user has not created any snippets yet.</p>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
+
+

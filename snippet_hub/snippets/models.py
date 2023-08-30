@@ -11,6 +11,7 @@ class Snippet(models.Model):
     creator = models.ForeignKey('auth.User', related_name='snippets', on_delete=models.CASCADE)
     is_public = models.BooleanField(default=True)
     tags = models.ManyToManyField("Tag")
+    copy_count = models.PositiveBigIntegerField(default=0)
 
     # class Meta:
     #     ordering = ['created']

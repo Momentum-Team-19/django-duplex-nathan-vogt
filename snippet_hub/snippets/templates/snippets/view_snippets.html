@@ -25,9 +25,22 @@ View Snippets - Snippet Hub
                 <div class="card-body">
                     <h4 class="card-title">{{ snippet.title }}</h4>
                     <h5 class="card-subtitle mb-2 text-muted">{{ snippet.language }}</h5>
+                    <a href="{% url 'snippets:view_user_profile' username=snippet.creator.username %}">
+                        {{ snippet.creator.username }}
+                    </a>
                     <p>Tags: {% for tag in snippet.tags.all %}{{ tag.name }} {% endfor %}</p>
-                    <h6 class="card-text">{{ snippet.code }}</h6>
+                    <!-- <h6 class="card-text">{{ snippet.code }}</h6> -->
+
+                    <textarea id="snippetCode{{ snippet.id }}" class="form-control textarea-autoresize" readonly>{{ snippet.code }}</textarea>
+                    <button onclick="copySnippetToClipboard('{{ snippet.id }}')">Copy Code</button>
+                    <span id="copyNotification_{{ snippet.id }}" style="color: green; display: none;">Code copied!</span>
+
                     <p class="card-text">{{ snippet.description }}</p>
+
+                    <p id="timesCopied{{ snippet.id }}">Times copied: 
+                        <span id="copyCount{{ snippet.id }}">{{ snippet.copy_count }}</span>
+                    </p>
+
                     <a href="{% url 'snippets:view_snippet' snippet.id %}" class="card-subtitle mb-2 text-muted">View Snippet</a>
                     <a href="{% url 'snippets:copy_snippet' snippet.id %}">Copy to My Snippets</a>
                 </div>

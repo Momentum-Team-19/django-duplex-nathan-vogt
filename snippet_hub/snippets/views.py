@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from .models import Snippet, Tag
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q  # Import the Q object
+from django.contrib.auth.models import User # Import the User model
+from django.http import JsonResponse
 
 # Create your views here.
 
@@ -96,6 +98,9 @@ def delete_snippet(request, snippet_id):
 @login_required # makes sure the user is logged in before they can copy a snippet
 def copy_snippet(request, snippet_id):
     original_snippet = Snippet.objects.get(id=snippet_id)
+    original_snippet.copy_count += 1 # Increment the copy count
+    original_snippet.save() # Save the updated copy count
+
     new_snippet = Snippet(
         title=original_snippet.title,
         language=original_snippet.language,
@@ -113,8 +118,19 @@ def copy_snippet(request, snippet_id):
     return redirect('snippets:view_snippets')
 
 
+def view_user_profile(request, username):
+    user = User.objects.get(username=username)
+    snippets = Snippet.objects.filter(creator=user)
+    return render(request, 'snippets/view_user_profile.html', {'user': user, 'snippets': snippets})
 
 
-
-
+@login_required
+def increment_copy_count(request, snippet_id):
+    try:
+        snippet = Snippet.objects.get(id=snippet_id)
+        snippet.copy_count += 1
+        snippet.save()
+        return JsonResponse({'status': 'success', 'message': 'Copy count incremented'})
+    except Snippet.DoesNotExist:
+        return JsonResponse({'status': 'error', 'message': 'Snippet does not exist'})
 

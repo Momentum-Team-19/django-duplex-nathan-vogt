@@ -9,6 +9,7 @@ class Profile(models.Model):
     profile_picture = models.ImageField(upload_to='profile_pics/', default='default.jpg')
     about = models.TextField()
     date_created = models.DateTimeField(auto_now_add=True)
+    
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):

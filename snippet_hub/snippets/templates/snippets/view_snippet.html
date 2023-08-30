@@ -11,9 +11,11 @@ View Snippet - Snippet Hub
     <div class="card-body">
         <h4 class="card-title">{{ snippet.title }}</h4>
         <h5 class="card-subtitle mb-2 text-muted">{{ snippet.language }}</h5>
+        <p>Creator: {{ snippet.creator.username }}</p>
         <p>Tags: {% for tag in snippet.tags.all %}{{ tag.name }} {% endfor %}</p>
         <h6 class="card-text">{{ snippet.code }}</h6>
         <p class="card-text">{{ snippet.description }}</p>
+        <p>Times copied: {{ snippet.copy_count }}</p>
 
         <!-- Edit Button -->
         <a href="{% url 'snippets:edit_snippet' snippet.id %}">
@@ -26,7 +28,7 @@ View Snippet - Snippet Hub
             <button type="submit" class="btn btn-danger">Delete</button>
         </form>
 
-        <a href="{% url 'snippets:profile' %}" class="card-subtitle mb-2 text-muted">Back to Snippets List</a>
+        <a href="{% url 'snippets:view_snippets' %}" class="card-subtitle mb-2 text-muted">Back to Snippets List</a>
 </div>
 
 {% endblock %}
