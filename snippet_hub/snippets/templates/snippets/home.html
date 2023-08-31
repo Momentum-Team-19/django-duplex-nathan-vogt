@@ -6,7 +6,9 @@ Home - Snippet Hub
 
 {% block content %}
 <!-- Your home page content here -->
-<h1>Home Page</h1>
+<h1>Welcome to Snippet Hub!</h1>
+
+<h4><em>The platform that will make you think why would I ever use Github again?</em></h4>
 <form method="post" action="{% url 'login' %}">
     {% csrf_token %}
     {{ form.as_p }}

@@ -1,4 +1,8 @@
+- Write Documentation / Readme for use
+
 Features list
+- users can only edit their own snippets
+- copy vs save counter
 - increment copy when button pressed or copy/paste used
 - populate page with tags
 - glossary of tags.
@@ -10,8 +14,6 @@ Features list
     - title, language, tags
     - date published
     - add to the parameter
-
-- Write Documentation / Readme for use
 
 - user can add folders and move snippets between folder projects
 
