@@ -25,8 +25,7 @@ async function copySnippetToClipboard(snippetId) {
   const data = await response.json();
 
   if (data.status === 'success') {
-      // alert("Copied the code to clipboard");
-
+    
       // Update "times copied" on the frontend
       const timesCopiedElement = document.getElementById(`copyCount${snippetId}`);
       let currentCount = parseInt(timesCopiedElement.textContent, 10);

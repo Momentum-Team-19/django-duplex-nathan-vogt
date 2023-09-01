@@ -7,12 +7,15 @@ Home - Snippet Hub
 {% block content %}
 <!-- Your home page content here -->
 <h1>Welcome to Snippet Hub!</h1>
-
-<h4><em>The platform that will make you think why would I ever use Github again?</em></h4>
+<h4><em>Share code in a snip of time</em></h4>
+<br>
+<h6>The platform that will make you think why would I ever use Github again?</h6>
+<br>
 <form method="post" action="{% url 'login' %}">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Login</button>
+    <button type="submit" class="btn btn-primary btn-lg">Login</button>
 </form>
+<br>
 
 {% endblock %}

@@ -14,25 +14,26 @@
 
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg">
-    <a class="navbar-brand text-white" href="{% url 'snippets:home' %}">Snippet Hub</a>
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <!-- Link to homepage -->
-          <a class="nav-link text-white" href="{% url 'snippets:home' %}">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="{% url 'snippets:profile' %}">Profile</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="{% url 'snippets:new_snippet' %}">Create Snippet</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="{% url 'snippets:view_snippets' %}">View Public Snippets</a>
-        </li>
-        
-      </ul>
-    </div>
+    <div class="container"> <!-- Added this container -->
+      <a class="navbar-brand text-white" href="{% url 'snippets:home' %}">Snippet Hub</a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <!-- Link to homepage -->
+            <a class="nav-link text-white" href="{% url 'snippets:home' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="{% url 'snippets:profile' %}">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="{% url 'snippets:new_snippet' %}">Create Snippet</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="{% url 'snippets:view_snippets' %}">View Public Snippets</a>
+          </li>
+        </ul>
+      </div>
+    </div> <!-- End of container -->
   </nav>
 
   <!-- Main content -->

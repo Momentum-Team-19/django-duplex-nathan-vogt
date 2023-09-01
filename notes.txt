@@ -1,5 +1,3 @@
-- Write Documentation / Readme for use
-
 Features list
 - users can only edit their own snippets
 - copy vs save counter
